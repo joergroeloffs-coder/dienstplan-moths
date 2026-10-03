@@ -92,6 +92,12 @@ def build_body(key, entry):
         f"Stand: {stand}\n"
         f"Datei: {entry.get('file', '?')}"
     )
+    besatzung_text = entry.get("besatzung_text")
+    if besatzung_text:
+        beschreibung += "\n\nBesatzung:\n" + besatzung_text
+    vorgaenger_text = entry.get("vorgaenger_text")
+    if vorgaenger_text:
+        beschreibung += "\n\nVorwoche (steigt aus):\n" + vorgaenger_text
     return {
         "id": event_id_for(key),
         "summary": summary,
@@ -142,6 +148,12 @@ def build_tages_bodies(key, entry):
         tages_abfahrten = pro_tag.get(tag.strftime("%d.%m.%Y"))
         if tages_abfahrten:
             beschreibung += "\n\nAbfahrten:\n" + tages_abfahrten
+        besatzung_text = entry.get("besatzung_text")
+        if besatzung_text:
+            beschreibung += "\n\nBesatzung:\n" + besatzung_text
+        vorgaenger_text = entry.get("vorgaenger_text")
+        if vorgaenger_text:
+            beschreibung += "\n\nVorwoche (steigt aus):\n" + vorgaenger_text
         bodies[eid] = {
             "id": eid,
             "summary": summary,
