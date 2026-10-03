@@ -619,8 +619,10 @@ def find_status_for_name(pdf, target_name_fragment):
 def find_crew_for_kategorie(pdf, kategorie):
     """Alle Besatzungsmitglieder (Rang, Name) der Spalte, deren Kopfzeile
     zu `kategorie` passt (z.B. das eigene Schiff) - unabhaengig vom
-    gesuchten Namen. Fuer die Anzeige der eigenen Besatzung bzw. der
-    Vorwoche-Besatzung (wer steigt aus)."""
+    gesuchten Namen. Nur fuer diese Koch-Kopie eingebaut: der Koch soll
+    sehen, wer in seiner Dienstwoche auf demselben Schiff faehrt, um
+    Allergien/Vorlieben zu beruecksichtigen (nicht Teil des Original-
+    Dienstplans)."""
     ziel_norm = norm(kategorie)
     besatzung = []
     # Kopfzeilen bleiben ueber Tabellen-/Seitengrenzen hinweg gueltig, siehe
